@@ -18,7 +18,7 @@ function App() {
         <div>
           <h1>안녕하세요, 이지원입니다 👋</h1>
           <p>
-            S3 정적 웹사이트 호스팅으로 배포한 사이트예요 (Day 2)
+            GitHub Actions가 자동으로 배포한 사이트예요 (Day 3)
           </p>
         </div>
         <button
