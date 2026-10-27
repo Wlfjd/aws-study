@@ -1,11 +1,20 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
 
+const API_URL = 'http://3.38.116.170:3000'
+
 function App() {
   const [count, setCount] = useState(0)
+  const [message, setMessage] = useState('')
+
+  useEffect(() => {
+    fetch(`${API_URL}/api/hello`)
+      .then((res) => res.json())
+      .then((data) => setMessage(data.message))
+  }, [])
 
   return (
     <>
@@ -19,6 +28,9 @@ function App() {
           <h1>안녕하세요, 이지원입니다 👋</h1>
           <p>
             GitHub Actions가 자동으로 배포한 사이트예요 (Day 3)
+          </p>
+          <p>
+            API 응답: <code>{message || '불러오는 중...'}</code>
           </p>
         </div>
         <button
